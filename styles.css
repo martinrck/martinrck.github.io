@@ -1,0 +1,706 @@
+:root {
+    --bg-color: #080810;
+    --primary-gradient: linear-gradient(135deg, #ff00cc, #3333ff);
+    --text-color: #ffffff;
+    --glass-bg: rgba(20, 20, 35, 0.4);
+    --border-light: rgba(255, 255, 255, 0.1);
+    --neon-pink: #ff00cc;
+    --neon-blue: #3333ff;
+    --font-main: 'Outfit', sans-serif;
+    --font-script: 'Mr Dafoe', cursive;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; 
+}
+
+
+body.locked-scroll {
+    overflow: hidden;
+    height: 100vh;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    overflow-x: hidden;
+}
+
+
+.ambient-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(circle at top center, #1a0b2e 0%, #080810 80%);
+    z-index: -2;
+}
+
+.retro-grid {
+    position: fixed;
+    bottom: -30%;
+    left: -50%;
+    width: 200%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(255, 0, 204, 0.2) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 0, 204, 0.2) 1px, transparent 1px);
+    background-size: 50px 50px;
+    transform: perspective(500px) rotateX(60deg);
+    z-index: -1;
+    opacity: 0.3;
+    animation: gridMove 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes gridMove {
+    0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
+    100% { transform: perspective(500px) rotateX(60deg) translateY(50px); }
+}
+
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(white 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background: rgba(8, 8, 16, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* --- LOGO CON EFECTO GLITCH --- */
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    position: relative;
+    /* Transición suave para entrar al estado hover */
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.logo:hover {
+    /* 1. Expansión cinematográfica */
+    letter-spacing: 6px; 
+    transform: scale(1.05);
+    
+    /* 2. Glow Intenso (Aura) */
+    text-shadow: 
+        0 0 15px rgba(255, 0, 204, 0.8), /* Nucleo Rosa */
+        0 0 30px rgba(51, 51, 255, 0.6), /* Aura Azul */
+        0 0 50px rgba(255, 0, 204, 0.4); /* Atmósfera */
+
+    /* 3. Animación de flotación lenta */
+    animation: floating-logo 3s ease-in-out infinite;
+}
+
+/* El acento "tick" brilla aún más */
+.logo:hover .script-accent {
+    color: #fff;
+    text-shadow: 
+        0 0 10px #fff,
+        0 0 20px var(--neon-pink),
+        0 0 40px var(--neon-pink);
+}
+
+/* --- ANIMACION FLOTANTE LENTA --- */
+@keyframes floating-logo {
+    0% { transform: scale(1.05) translateY(0px); }
+    50% { transform: scale(1.05) translateY(-8px); } /* Sube suavemente */
+    100% { transform: scale(1.05) translateY(0px); }
+}
+
+.script-accent {
+    font-family: var(--font-script);
+    color: var(--neon-pink);
+    font-weight: 400;
+    font-size: 2.2rem;
+    text-transform: none;
+    margin-left: -5px;
+    text-shadow: 0 0 10px rgba(255, 0, 204, 0.6);
+}
+
+nav a {
+    color: #ccc;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #fff;
+    text-shadow: 0 0 5px #fff;
+}
+
+.btn-nav {
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 8px 20px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.btn-nav:hover {
+    border-color: var(--neon-pink);
+    background: rgba(255, 0, 204, 0.1);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(255, 0, 204, 0.4);
+}
+
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content {
+    max-width: 700px;
+    margin-top: 50px;
+}
+
+.tagline {
+    color: var(--neon-blue);
+    font-weight: 600;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    text-shadow: 0 0 5px rgba(51, 51, 255, 0.5);
+}
+
+h1 {
+    font-size: 5.5rem;
+    line-height: 0.95;
+    margin-bottom: 30px;
+    font-weight: 800;
+}
+
+.gradient-text {
+    background: var(--primary-gradient);
+    
+    /* Agregá esta línea estándar: */
+    background-clip: text;
+    
+    /* Mantené esta línea para que funcione en Chrome/Safari/Edge: */
+    -webkit-background-clip: text;
+    
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 25px rgba(51, 51, 255, 0.4));
+}
+
+.description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #bbb;
+    margin-bottom: 50px;
+    max-width: 500px;
+    border-left: 3px solid var(--neon-pink);
+    padding-left: 20px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 50px;
+    background: transparent;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid #fff;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button:hover {
+    background: #fff;
+    color: #000;
+    box-shadow: 0 0 20px rgba(255,255,255,0.4);
+}
+
+.cta-button span {
+    margin-left: 10px;
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+.cta-button:hover span {
+    transform: translateY(3px);
+}
+
+/* --- SECCIONES DE CONTENIDO --- */
+.content-wrapper {
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(to bottom, transparent, #080810 20%);
+    padding-bottom: 50px;
+}
+
+.section-title-wrapper {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 3px;
+    background: var(--neon-pink);
+    margin: 10px auto 0;
+    box-shadow: 0 0 10px var(--neon-pink);
+}
+
+/* --- CARRUSEL --- */
+.carousel-section {
+    padding: 80px 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    height: 550px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 
+        0 0 15px var(--neon-pink),
+        0 0 30px var(--neon-pink),
+        inset 0 0 50px rgba(51, 51, 255, 0.3);
+    border: 2px solid rgba(255, 0, 204, 0.7);
+    background: #000;
+}
+
+.carousel-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: contrast(1.1) saturate(1.3);
+}
+
+.crt-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        rgba(18, 16, 16, 0) 50%, 
+        rgba(0, 0, 0, 0.25) 50%
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.slide-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    padding: 40px;
+    padding-bottom: 60px;
+}
+
+.slide-content h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.5rem;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0px var(--neon-pink);
+    margin-bottom: 5px;
+}
+
+.slide-content p {
+    font-size: 1.1rem;
+    color: #ddd;
+    max-width: 600px;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--neon-pink);
+    color: #fff;
+    font-size: 2rem;
+    padding: 15px 20px;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s;
+}
+
+.carousel-btn:hover {
+    background: var(--neon-pink);
+    box-shadow: 0 0 25px var(--neon-pink);
+}
+
+.prev { left: 0; border-left: none; }
+.next { right: 0; border-right: none; }
+
+.indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    gap: 15px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+}
+
+.dot.active {
+    background: var(--neon-blue);
+    box-shadow: 0 0 10px var(--neon-blue);
+    transform: scale(1.3);
+    border-color: #fff;
+}
+
+/* --- Info Grid --- */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    padding: 50px 10%;
+    position: relative;
+    z-index: 2;
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--border-light);
+    padding: 50px 30px;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s;
+    text-align: center;
+    border-radius: 2px;
+}
+
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--neon-pink);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.glass-card .icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: block;
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
+}
+
+.glass-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.glass-card p {
+    color: #bbb;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* --- SECCION MUSICA (NUEVO) --- */
+.music-section {
+    padding: 80px 10%;
+    position: relative;
+    z-index: 2;
+}
+
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.music-card {
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 30px;
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.cassette-top {
+    width: 60%;
+    height: 15px;
+    background: #222;
+    margin: -10px auto 20px auto;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 1px solid #444;
+}
+
+.music-card h3 {
+    font-family: 'Outfit', sans-serif;
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+}
+
+.artist-list {
+    list-style: none;
+    text-align: center;
+}
+
+.artist-list li {
+    font-size: 1.1rem;
+    color: #aaa;
+    margin: 10px 0;
+    transition: color 0.3s, text-shadow 0.3s;
+    cursor: default;
+}
+
+.music-card:hover .artist-list li {
+    color: #fff;
+}
+
+/* Efectos Glow Music Card */
+.pink-glow:hover {
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 30px rgba(255, 0, 204, 0.2), inset 0 0 20px rgba(255, 0, 204, 0.1);
+    transform: translateY(-5px);
+}
+.pink-glow:hover h3 { color: var(--neon-pink); text-shadow: 0 0 10px var(--neon-pink); }
+.pink-glow:hover .artist-list li:hover { text-shadow: 0 0 8px var(--neon-pink); }
+
+.blue-glow:hover {
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 30px rgba(51, 51, 255, 0.2), inset 0 0 20px rgba(51, 51, 255, 0.1);
+    transform: translateY(-5px);
+}
+.blue-glow:hover h3 { color: var(--neon-blue); text-shadow: 0 0 10px var(--neon-blue); }
+.blue-glow:hover .artist-list li:hover { text-shadow: 0 0 8px var(--neon-blue); }
+
+.purple-glow:hover {
+    border-color: #bd00ff;
+    box-shadow: 0 0 30px rgba(189, 0, 255, 0.2), inset 0 0 20px rgba(189, 0, 255, 0.1);
+    transform: translateY(-5px);
+}
+.purple-glow:hover h3 { color: #bd00ff; text-shadow: 0 0 10px #bd00ff; }
+.purple-glow:hover .artist-list li:hover { text-shadow: 0 0 8px #bd00ff; }
+
+
+/* --- Footer --- */
+footer {
+    padding: 50px 10%;
+    border-top: 1px solid var(--border-light);
+    margin-top: 80px;
+    text-align: center;
+    background: #000;
+    position: relative;
+    z-index: 5;
+}
+
+.logo-small {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #888;
+}
+
+footer p {
+    font-size: 0.9rem;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* --- BOTONES SOCIALES FLOTANTES --- */
+.social-float-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex; /* Para ponerlos uno al lado del otro */
+    gap: 15px;     /* Espacio entre botones */
+    z-index: 1000;
+}
+
+.social-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+/* Color Instagram (Degradado Oficial adaptado) */
+.instagram-btn {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+.instagram-btn:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 0 25px #d6249f; /* Glow Rosa */
+    border-color: #fff;
+}
+
+/* Color WhatsApp */
+.whatsapp-btn {
+    background-color: #25d366;
+    animation: pulse-green 2s infinite; /* Solo WhatsApp late para llamar más la atención */
+}
+
+.whatsapp-btn:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 0 25px #25d366;
+    border-color: #fff;
+}
+
+/* Animación de latido (Misma de antes) */
+@keyframes pulse-green {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* Ajuste Mobile */
+@media (max-width: 768px) {
+    .social-float-container {
+        bottom: 20px;
+        right: 20px;
+        gap: 10px;
+    }
+    .social-btn {
+        width: 50px;
+        height: 50px;
+    }
+    .social-btn svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    h1 { font-size: 3.5rem; }
+    
+    header {
+        padding: 15px 20px;
+    }
+
+    nav { display: none; } 
+    
+    .hero {
+        padding: 0 20px;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .description {
+        border-left: none;
+        padding-left: 0;
+    }
+    
+    .carousel-container { height: 350px; }
+    .slide-content h3 { font-size: 1.5rem; }
+    .slide-content { padding: 20px; }
+
+    /* Ajuste WhatsApp para móviles */
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+    .whatsapp-float svg {
+        width: 28px;
+        height: 28px;
+    }
+}
