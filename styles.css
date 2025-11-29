@@ -15,12 +15,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* Quitamos scroll-behavior del selector universal para dejar que scroll-snap maneje la física */
 }
 
 /* --- CONFIGURACIÓN DE SCROLL SNAP --- */
 html {
-    scroll-snap-type: y mandatory; /* Obliga al scroll a detenerse en los puntos clave */
+    scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
@@ -35,62 +34,48 @@ body {
 
 /* --- CLASE MAESTRA PARA SECCIONES FULL SCREEN --- */
 .snap-section {
-    min-height: 100vh;      /* Ocupa al menos toda la pantalla */
+    min-height: 100vh;
     width: 100%;
-    scroll-snap-align: start; /* Aquí es donde el scroll se "engancha" */
+    scroll-snap-align: start;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centra el contenido verticalmente */
+    justify-content: center;
     align-items: center;
     position: relative;
-    padding: 80px 10%; /* Padding general para que no toque los bordes */
+    padding: 80px 10%;
     z-index: 2;
     box-sizing: border-box;
 }
 
 /* --- ANIMACIÓN DE ENTRADA LATERAL --- */
-/* Estado Inicial: Invisible y desplazado a la izquierda */
 .content-anim {
     opacity: 0;
-    transform: translateX(-100px); /* Empieza 100px a la izquierda */
-    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Suavizado profesional */
+    transform: translateX(-100px);
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Estado Final (agregado por JS): Visible y en su lugar */
 .content-anim.visible {
     opacity: 1;
     transform: translateX(0);
 }
 
-/* Utilitario para centrar contenido interno */
+/* Utilitarios */
 .w-100 { width: 100%; }
-.centered-column { 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-}
+.centered-column { display: flex; flex-direction: column; align-items: center; }
 
-/* --- AJUSTES ESPECÍFICOS PARA MANTENER DISEÑO --- */
+/* --- AJUSTES ESPECÍFICOS --- */
+.hero { padding-top: 80px; }
 
-/* Hero adjustments */
-.hero {
-    /* El hero ya tiene estilos, solo aseguramos que use snap */
-    padding-top: 80px; /* Compensa el navbar fijo */
-}
-
-/* Ajustes Footer para que se vea bien en snap */
 .footer-section {
     background: #000;
     border-top: 1px solid var(--border-light);
     justify-content: center;
-    min-height: 50vh; /* El footer puede ser más chico si quieres, o 100vh para cierre dramático */
+    min-height: 50vh;
     scroll-snap-align: end;
 }
-.footer-content {
-    text-align: center;
-}
+.footer-content { text-align: center; }
 
-/* --- FONDOS ANIMADOS (Sin cambios) --- */
+/* --- FONDOS ANIMADOS --- */
 .ambient-bg {
     position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
     background: radial-gradient(circle at center, #1a0b2e 10%, #080810 90%);
@@ -147,7 +132,7 @@ header.scrolled { padding: 10px 10%; background: rgba(0, 0, 0, 0.95); box-shadow
 .menu-toggle { display: none; cursor: pointer; z-index: 1002; }
 .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: #fff; transition: all 0.3s ease-in-out; }
 
-/* HERO CONTENIDO (AJUSTADO) */
+/* HERO CONTENIDO */
 .hero-container { display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1400px; gap: 50px; }
 .hero-content { flex: 1; max-width: 600px; z-index: 2; }
 .tagline { color: var(--neon-blue); font-weight: 600; letter-spacing: 4px; margin-bottom: 20px; font-size: 1rem; text-shadow: 0 0 5px rgba(51, 51, 255, 0.5); }
@@ -182,7 +167,7 @@ h1:hover .gradient-text { background-position: right center; filter: drop-shadow
 .section-title { font-size: 2.5rem; color: #fff; text-transform: uppercase; letter-spacing: 5px; position: relative; display: inline-block; }
 .section-title::after { content: ''; display: block; width: 60%; height: 3px; background: var(--neon-pink); margin: 10px auto 0; box-shadow: 0 0 10px var(--neon-pink); }
 
-/* CAROUSEL (Ajustes para Snap) */
+/* CAROUSEL */
 .carousel-container { position: relative; width: 100%; max-width: 1100px; height: 550px; border-radius: 4px; overflow: hidden; box-shadow: 0 0 15px var(--neon-pink), 0 0 30px var(--neon-pink), inset 0 0 50px rgba(51, 51, 255, 0.3); border: 2px solid rgba(255, 0, 204, 0.7); background: #000; margin: 0 auto; }
 .carousel-track { position: relative; width: 100%; height: 100%; }
 .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.8s ease-in-out; pointer-events: none; }
@@ -200,35 +185,177 @@ h1:hover .gradient-text { background-position: right center; filter: drop-shadow
 .dot { width: 12px; height: 12px; background: rgba(255, 255, 255, 0.3); border-radius: 50%; border: 1px solid transparent; }
 .dot.active { background: var(--neon-blue); box-shadow: 0 0 10px var(--neon-blue); transform: scale(1.3); border-color: #fff; }
 
-/* ABOUT SECTION */
-.about-container { display: flex; align-items: center; gap: 50px; max-width: 1200px; margin: 0 auto; width: 100%; }
-.about-text { flex: 1; text-align: left; border-left: 4px solid var(--neon-pink); }
-.about-title { color: var(--neon-blue); font-size: 2.2rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 3px; text-shadow: 0 0 5px rgba(51, 51, 255, 0.5); }
-.about-text p { margin-bottom: 20px; font-size: 1.1rem; color: #ddd; }
-.highlight-text { font-family: var(--font-script); font-size: 2rem !important; color: var(--neon-pink) !important; text-shadow: 0 0 10px rgba(255, 0, 204, 0.4); margin-top: 30px; }
+/* =========================================
+   SECCIÓN QUIENES SOMOS (MEJORADA Y GIGANTE)
+   ========================================= */
 
-/* REVIEWS RETRO */
-.about-visual { flex: 1; display: flex; justify-content: center; align-items: center; width: 100%; }
-.reviews-wrapper { width: 350px; background: rgba(10, 10, 20, 0.9); border: 2px solid var(--neon-purple); border-radius: 8px; box-shadow: 0 0 20px rgba(189, 0, 255, 0.2); overflow: hidden; position: relative; }
-.reviews-header { background: var(--neon-purple); padding: 8px 12px; display: flex; align-items: center; gap: 6px; }
-.dot-btn { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.about-section {
+    position: relative;
+    z-index: 2;
+}
+
+.about-container {
+    display: flex;
+    align-items: center; /* Alineación vertical centrada */
+    justify-content: center;
+    gap: 80px; /* Mucho más espacio entre el texto y las reviews */
+    max-width: 1600px; /* Ancho máximo aumentado */
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* --- BLOQUE DE TEXTO (IZQUIERDA) --- */
+.about-text {
+    flex: 1;
+    text-align: left;
+    border-left: 6px solid var(--neon-pink); /* Borde más grueso */
+    padding: 60px 50px; /* Padding interno mucho más grande */
+    background: rgba(20, 20, 35, 0.6); 
+    border-radius: 0 12px 12px 0;
+}
+
+.about-title {
+    color: var(--neon-blue);
+    font-size: 3.5rem; /* Título gigante */
+    font-weight: 800;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    line-height: 1.1;
+    text-shadow: 0 0 15px rgba(51, 51, 255, 0.4);
+}
+
+.about-text p {
+    margin-bottom: 25px;
+    font-size: 1.4rem; /* Texto muy legible */
+    line-height: 1.7;
+    color: #e0e0e0;
+    font-weight: 300;
+}
+
+.about-text strong {
+    color: #fff;
+    font-weight: 600;
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
+
+.highlight-text {
+    font-family: var(--font-script);
+    font-size: 2.8rem !important; /* Cita script gigante */
+    color: var(--neon-pink) !important;
+    text-shadow: 0 0 15px rgba(255, 0, 204, 0.5);
+    margin-top: 40px;
+    transform: rotate(-2deg);
+    display: block;
+}
+
+/* --- BLOQUE DE REVIEWS (DERECHA - RETRO TERMINAL) --- */
+.about-visual {
+    flex: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reviews-wrapper {
+    width: 100%;
+    max-width: 550px; /* Caja mucho más ancha */
+    background: rgba(10, 10, 16, 0.95);
+    border: 3px solid var(--neon-purple);
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(189, 0, 255, 0.25), 15px 15px 0px rgba(0,0,0,0.5);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.reviews-wrapper:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 0 50px rgba(189, 0, 255, 0.4);
+}
+
+.reviews-header {
+    background: var(--neon-purple);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #000;
+}
+
+.window-controls { display: flex; gap: 8px; }
+
+.dot-btn { width: 14px; height: 14px; border-radius: 50%; display: inline-block; border: 1px solid rgba(0,0,0,0.2); }
 .dot-btn.red { background: #ff5f56; }
 .dot-btn.yellow { background: #ffbd2e; }
 .dot-btn.green { background: #27c93f; }
-.header-title { margin-left: auto; font-size: 0.7rem; font-weight: 800; color: #000; letter-spacing: 1px; }
-.reviews-window { height: 300px; overflow: hidden; position: relative; padding: 20px; }
-.reviews-track { display: flex; flex-direction: column; gap: 20px; animation: scrollVertical 20s linear infinite; }
+
+.header-title {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #000;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.reviews-window {
+    height: 450px; /* Altura aumentada */
+    padding: 25px;
+    background: linear-gradient(rgba(18, 16, 16, 0.1) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255,0,0,0.06), rgba(0,255,0,0.02), rgba(0,0,255,0.06));
+    background-size: 100% 3px, 3px 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.reviews-track {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    animation: scrollVertical 25s linear infinite;
+}
+
 .reviews-wrapper:hover .reviews-track { animation-play-state: paused; }
-.review-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 15px; border-radius: 6px; font-family: 'Outfit', sans-serif; }
-.review-user { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-.avatar { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #fff; font-size: 0.8rem; }
+
+/* --- TARJETA INDIVIDUAL DE REVIEW --- */
+.review-card {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 25px;
+    border-radius: 8px;
+    font-family: 'Outfit', sans-serif;
+    backdrop-filter: blur(5px);
+    transition: background 0.3s;
+}
+
+.review-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.review-user { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+
+.avatar {
+    width: 45px; height: 45px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; color: #fff; font-size: 1.2rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
 .gradient-1 { background: linear-gradient(45deg, #ff00cc, #3333ff); }
 .gradient-2 { background: linear-gradient(45deg, #00f3ff, #3333ff); }
 .gradient-3 { background: linear-gradient(45deg, #bd00ff, #ff00cc); }
+
 .user-info { display: flex; flex-direction: column; }
-.username { font-size: 0.8rem; color: #fff; font-weight: 600; }
-.stars { font-size: 0.7rem; color: #ffd700; }
-.review-text { font-size: 0.9rem; color: #ccc; line-height: 1.4; font-style: italic; margin: 0; }
+.username { font-size: 1.1rem; color: #fff; font-weight: 700; letter-spacing: 0.5px; }
+.stars { font-size: 0.9rem; color: #ffd700; margin-top: 2px; }
+
+.review-text {
+    font-size: 1.15rem;
+    color: #ddd;
+    line-height: 1.6;
+    font-style: italic;
+    margin: 0;
+}
 @keyframes scrollVertical { 0% { transform: translateY(0); } 100% { transform: translateY(-50%); } }
 
 /* INFO GRID */
@@ -268,7 +395,7 @@ h1:hover .gradient-text { background-position: right center; filter: drop-shadow
 .logo-small { font-size: 1.5rem; margin-bottom: 15px; color: #888; }
 .footer-content p { font-size: 0.9rem; color: #555; text-transform: uppercase; letter-spacing: 2px; }
 
-/* SOCIAL FLOAT & PRELOADER (Igual) */
+/* SOCIAL FLOAT & PRELOADER */
 .social-float-container { position: fixed; bottom: 30px; right: 30px; display: flex; gap: 15px; z-index: 999; }
 .social-btn { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding: 0; text-decoration: none; color: #fff; transition: all 0.3s ease; border: 2px solid transparent; box-shadow: 0 0 15px rgba(0,0,0,0.5); overflow: hidden; cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAGFBMVEUAAAAAAACAgID////AwMD///+/v7+YmJg3e590AAAACHRSTlMAESIzRFVmd4Bp72EAAACWSURBVHjaY2AYZICJkYmZlZ2DlY2BiYONnQOMgw2I4OAAcoiJ8/DwADl8/Hz8/EBOAA8vLz8QA4iHlw+I4ePjA2L4gTgfHwgwMTIzMjIDOTxMvLwCQI6QkJCgIA8Q42dkZGJm4eDhY2BiYmJk5OBlYGJmYWVjZ+dgYGBjZwdJCAqCJEB8IA4QY0DjEwAAgHwM85y2uAYAAAAASUVORK5CYII='), pointer; }
 .social-btn svg { width: 30px; height: 30px; display: block; }
@@ -292,7 +419,14 @@ h1:hover .gradient-text { background-position: right center; filter: drop-shadow
 .delay-1 { transition-delay: 0.1s; } .delay-2 { transition-delay: 0.3s; } .delay-3 { transition-delay: 0.5s; } .delay-4 { transition-delay: 0.7s; } .delay-5 { transition-delay: 0.9s; }
 body.loading { overflow: hidden; }
 
-/* MEDIA QUERIES (UPDATED FOR SNAP) */
+/* MEDIA QUERIES (UPDATED) */
+@media (max-width: 1200px) {
+    /* Ajustes intermedios para la nueva sección */
+    .about-title { font-size: 3rem; }
+    .about-text p { font-size: 1.2rem; }
+    .reviews-wrapper { max-width: 450px; }
+}
+
 @media (max-width: 992px) {
     h1 { font-size: 4rem; }
     .hero-container { flex-direction: column-reverse; text-align: center; gap: 30px; }
@@ -301,8 +435,13 @@ body.loading { overflow: hidden; }
     .vinyl-record { width: 330px; height: 330px; }
     .vinyl-label { width: 100px; height: 100px; }
     .glow-effect { width: 400px; height: 400px; }
-    /* Ajuste de padding para pantallas medianas */
     .snap-section { padding: 80px 5%; }
+
+    /* Ajustes sección Quienes Somos en Tablet/Laptop pequeña */
+    .about-container { flex-direction: column; text-align: center; gap: 50px; }
+    .about-text { text-align: center; border-left: none; border-top: 6px solid var(--neon-pink); padding: 40px 20px; border-radius: 0 0 12px 12px; }
+    .reviews-wrapper { width: 100%; max-width: 500px; }
+    .highlight-text { font-size: 2rem !important; margin-top: 20px; }
 }
 
 @media (max-width: 768px) {
@@ -325,11 +464,13 @@ body.loading { overflow: hidden; }
     .slide-content h3 { font-size: 1.5rem; }
     .slide-content p { display: none; }
     .slide-content { padding: 20px; }
-    .about-container { flex-direction: column; gap: 40px; }
-    .about-text { text-align: center; border-left: none; border-top: 4px solid var(--neon-pink); padding-top: 20px; }
-    .about-visual { width: 100%; margin-top: 30px; }
-    .reviews-wrapper { width: 100%; max-width: 320px; }
+    
+    /* Mobile Quienes Somos */
+    .about-title { font-size: 2.2rem; }
+    .about-text p { font-size: 1.1rem; }
+    .reviews-window { height: 350px; }
+    
     .social-float-container { bottom: 20px; right: 20px; gap: 10px; }
     .section-title { font-size: 1.8rem; }
-    .snap-section { padding: 40px 20px; justify-content: flex-start; /* En movil a veces el centro queda mal */ padding-top: 100px; }
+    .snap-section { padding: 40px 20px; justify-content: flex-start; padding-top: 100px; }
 }
