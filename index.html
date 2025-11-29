@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discotick | La Noche Retro</title>
+    <title>Discotick | 80s & 90s Disco</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +24,6 @@
 
     <div class="ambient-bg"></div>
     <div class="retro-grid"></div> 
-    
     <div class="geometric-bg">
         <div class="geo-shape shape-triangle"></div>
         <div class="geo-shape shape-circle"></div>
@@ -48,9 +47,10 @@
         </div>
 
         <nav class="nav-menu" id="nav-menu">
+            <a href="#experiencia" class="nav-link">La Experiencia Discotick</a>
             <a href="#quienes-somos" class="nav-link">Nosotros</a>
+            <a href="#info" class="nav-link">Detalles</a>
             <a href="#musica" class="nav-link">Música</a>
-            <a href="#experiencia" class="nav-link">Experiencia</a>
             
             <a href="https://www.passline.com" target="_blank" rel="noopener noreferrer" class="btn-passline">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
@@ -61,87 +61,86 @@
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <p class="tagline hidden-element delay-1">EST. 1985</p>
-                <h1 class="hidden-element delay-2" id="main-title">
-                    LA NOCHE <br> 
-                    <span class="gradient-text">MAS RETRO DE BUENOS AIRES</span>
-                </h1>
-                
-                <p class="description hidden-element delay-3">
-                    Tu refugio de neón donde los clásicos nunca mueren. 
-                    Pop, Rock, tragos de autor y la mística de los 80s.
-                </p>
-                <a href="#experiencia" class="cta-button hidden-element delay-4">DESCUBRIR <span>↓</span></a>
-            </div>
+    <div class="scroll-container">
 
-            <div class="hero-visual hidden-element delay-5">
-                <div class="vinyl-wrapper" id="interactive-vinyl">
-                    <div class="vinyl-record">
-                        <div class="vinyl-grooves"></div>
-                        <div class="vinyl-label">
-                            <span class="label-text">SIDE A</span>
-                            <span class="label-title">DISCOTICK</span>
-                            <span class="label-sub">33 RPM</span>
-                        </div>
-                        <div class="vinyl-shine"></div>
-                    </div>
-                    <div class="glow-effect"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div id="main-content" class="content-wrapper">
-        
-        <section id="experiencia" class="carousel-section">
-            <div class="section-title-wrapper">
-                <h2 class="section-title">LA EXPERIENCIA</h2>
-            </div>
-            
-            <div class="carousel-container">
-                <div class="carousel-track" id="track">
+        <section id="inicio" class="hero snap-section">
+            <div class="hero-container content-anim">
+                <div class="hero-content">
+                    <p class="tagline">EST. 1985</p>
+                    <h1 id="main-title">
+                        LA NOCHE <br> 
+                        <span class="gradient-text">MAS RETRO DE BUENOS AIRES</span>
+                    </h1>
                     
-                    <div class="slide active">
-                        <img src="img/aletick.png" alt="Pista de baile" onerror="this.src='https://images.unsplash.com/photo-1566737236500-c8ac43014a67?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80'"> 
-                        <div class="slide-content">
-                            <h3>LA PISTA</h3>
-                            <p>Luces de neón y el sonido de Depeche Mode, Madonna y Michael Jackson.</p>
-                        </div>
-                        <div class="crt-overlay"></div>
-                    </div>
-
-                    <div class="slide">
-                        <img src="img/image.png" alt="Vinilos DJ" onerror="this.src='https://images.unsplash.com/photo-1571266028243-371695039980?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80'"> 
-                        <div class="slide-content">
-                            <h3>NOCHES TEMATICAS</h3>
-                            <p>Halloween, Noche de Piratas, Miami Vice y más.</p>
-                        </div>
-                        <div class="crt-overlay"></div>
-                    </div>
-
-                    <div class="slide">
-                        <img src="img/bamboofaxe.png" alt="Tragos Neon" onerror="this.src='https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80'"> 
-                        <div class="slide-content">
-                            <h3>COCTELERÍA</h3>
-                            <p>Blue Lagoon, Tequila Sunrise y Whisky importado.</p>
-                        </div>
-                        <div class="crt-overlay"></div>
-                    </div>
-
+                    <p class="description">
+                        Tu refugio de neón donde los clásicos nunca mueren. 
+                        Pop, Rock, tragos de autor y la mística de los 80s.
+                    </p>
+                    <a href="#experiencia" class="cta-button">DESCUBRIR <span>↓</span></a>
                 </div>
 
-                <button class="carousel-btn prev" id="prevBtn">❮</button>
-                <button class="carousel-btn next" id="nextBtn">❯</button>
-                
-                <div class="indicators" id="indicators"></div>
+                <div class="hero-visual">
+                    <div class="vinyl-wrapper" id="interactive-vinyl">
+                        <div class="vinyl-record">
+                            <div class="vinyl-grooves"></div>
+                            <div class="vinyl-label">
+                                <span class="label-text">SIDE A</span>
+                                <span class="label-title">DISCOTICK</span>
+                                <span class="label-sub">33 RPM</span>
+                            </div>
+                            <div class="vinyl-shine"></div>
+                        </div>
+                        <div class="glow-effect"></div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="quienes-somos" class="about-section">
-            <div class="about-container">
+        <section id="experiencia" class="carousel-section snap-section">
+            <div class="content-anim w-100 centered-column">
+                <div class="section-title-wrapper">
+                    <h2 class="section-title">LA EXPERIENCIA</h2>
+                </div>
+                
+                <div class="carousel-container">
+                    <div class="carousel-track" id="track">
+                        <div class="slide active">
+                            <img src="img/aletick.png" alt="Pista de baile" onerror="this.src='https://images.unsplash.com/photo-1566737236500-c8ac43014a67?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80'"> 
+                            <div class="slide-content">
+                                <h3>LA PISTA</h3>
+                                <p>Luces de neón y el sonido de Depeche Mode, Madonna y Michael Jackson.</p>
+                            </div>
+                            <div class="crt-overlay"></div>
+                        </div>
+
+                        <div class="slide">
+                            <img src="img/image.png" alt="Vinilos DJ" onerror="this.src='https://images.unsplash.com/photo-1571266028243-371695039980?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80'"> 
+                            <div class="slide-content">
+                                <h3>NOCHES TEMATICAS</h3>
+                                <p>Halloween, Noche de Piratas, Miami Vice y más.</p>
+                            </div>
+                            <div class="crt-overlay"></div>
+                        </div>
+
+                        <div class="slide">
+                            <img src="img/bamboofaxe.png" alt="Tragos Neon" onerror="this.src='https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80'"> 
+                            <div class="slide-content">
+                                <h3>COCTELERÍA</h3>
+                                <p>Blue Lagoon, Tequila Sunrise y Whisky importado.</p>
+                            </div>
+                            <div class="crt-overlay"></div>
+                        </div>
+                    </div>
+
+                    <button class="carousel-btn prev" id="prevBtn">❮</button>
+                    <button class="carousel-btn next" id="nextBtn">❯</button>
+                    <div class="indicators" id="indicators"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quienes-somos" class="about-section snap-section">
+            <div class="about-container content-anim">
                 <div class="about-text glass-card">
                     <h2 class="about-title">EL ESPÍRITU DISCOTICK</h2>
                     <p>
@@ -158,7 +157,7 @@
                             <span class="dot-btn red"></span>
                             <span class="dot-btn yellow"></span>
                             <span class="dot-btn green"></span>
-                            <span class="header-title">OPINIONES DE NUESTROS CLIENTES</span>
+                            <span class="header-title">OPINIONES</span>
                         </div>
                         <div class="reviews-window">
                             <div class="reviews-track">
@@ -170,9 +169,8 @@
                                             <span class="stars">★★★★★</span>
                                         </div>
                                     </div>
-                                    <p class="review-text">"¡Es como entrar en un DeLorean! La música es perfecta, volví a los 80s real. ¡Aguante Depeche Mode!"</p>
+                                    <p class="review-text">"¡Es como entrar en un DeLorean! La música es perfecta."</p>
                                 </div>
-
                                 <div class="review-card">
                                     <div class="review-user">
                                         <div class="avatar gradient-2">S</div>
@@ -181,9 +179,8 @@
                                             <span class="stars">★★★★★</span>
                                         </div>
                                     </div>
-                                    <p class="review-text">"Los mejores tragos de Palermo. El Blue Lagoon es obligado 🍹. El ambiente es un 10/10."</p>
+                                    <p class="review-text">"Los mejores tragos de Palermo. El Blue Lagoon es obligado 🍹."</p>
                                 </div>
-
                                 <div class="review-card">
                                     <div class="review-user">
                                         <div class="avatar gradient-3">L</div>
@@ -192,21 +189,9 @@
                                             <span class="stars">★★★★★</span>
                                         </div>
                                     </div>
-                                    <p class="review-text">"No paré de bailar. La onda que tiene este lugar es única. ¡Gracias por pasar A-ha!"</p>
+                                    <p class="review-text">"No paré de bailar. ¡Gracias por pasar A-ha!"</p>
                                 </div>
-
-                                <div class="review-card">
-                                    <div class="review-user">
-                                        <div class="avatar gradient-1">A</div>
-                                        <div class="user-info">
-                                            <span class="username">@Ana_Retro</span>
-                                            <span class="stars">★★★★★</span>
-                                        </div>
-                                    </div>
-                                    <p class="review-text">"Excelente atención y la música te transporta. Fui por mi cumple y la pasé genial. 🎉"</p>
-                                </div>
-
-                                <div class="review-card">
+                                 <div class="review-card">
                                     <div class="review-user">
                                         <div class="avatar gradient-1">M</div>
                                         <div class="user-info">
@@ -214,99 +199,94 @@
                                             <span class="stars">★★★★★</span>
                                         </div>
                                     </div>
-                                    <p class="review-text">"¡Es como entrar en un DeLorean! La música es perfecta, volví a los 80s real. ¡Aguante Depeche Mode!"</p>
+                                    <p class="review-text">"¡Es como entrar en un DeLorean! La música es perfecta."</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                </div>
-        </section>
-
-        <section class="info-grid">
-            <div class="glass-card hover-effect">
-                <div class="icon">🎵</div>
-                <h2>Alta calidad de sonido</h2>
-                <p>Sistemas de audio calibrados para sentir cada bajo del Synthpop.</p>
-            </div>
-            <div class="glass-card hover-effect">
-                <div class="icon">🍸</div>
-                <h2>Barra Premium</h2>
-                <p>La mejor selección de bebidas internacionales y tragos clásicos.</p>
-            </div>
-            <div class="glass-card hover-effect">
-                <div class="icon">✨</div>
-                <h2>Codigo de Vestimenta</h2>
-                <p>Vení cómodo. Tu estilo y tu buena onda son lo único que importa.</p>
             </div>
         </section>
 
-        <section id="musica" class="music-section">
-            <div class="section-title-wrapper">
-                <h2 class="section-title">NUESTRA PLAYLIST</h2>
-            </div>
-
-            <div class="music-grid">
-                <div class="music-card pink-glow">
-                    <div class="cassette-top"></div>
-                    <h3>SYNTH WAVE</h3>
-                    <ul class="artist-list">
-                        <li>Depeche Mode</li>
-                        <li>Erasure</li>
-                        <li>A-ha</li>
-                        <li>Pet Shop Boys</li>
-                        <li>New Order</li>
-                    </ul>
+        <section id="info" class="snap-section">
+            <div class="info-grid content-anim">
+                <div class="glass-card hover-effect">
+                    <div class="icon">🎵</div>
+                    <h2>Alta fidelidad</h2>
+                    <p>Sistemas de audio calibrados para sentir cada bajo del Synthpop.</p>
                 </div>
-
-                <div class="music-card blue-glow">
-                    <div class="cassette-top"></div>
-                    <h3>POP ICONS</h3>
-                    <ul class="artist-list">
-                        <li>Michael Jackson</li>
-                        <li>Madonna</li>
-                        <li>Prince</li>
-                        <li>Cyndi Lauper</li>
-                        <li>Wham!</li>
-                    </ul>
+                <div class="glass-card hover-effect">
+                    <div class="icon">🍸</div>
+                    <h2>Barra Premium</h2>
+                    <p>La mejor selección de bebidas internacionales y tragos clásicos.</p>
                 </div>
-
-                <div class="music-card purple-glow">
-                    <div class="cassette-top"></div>
-                    <h3>ROCK & DISCO</h3>
-                    <ul class="artist-list">
-                        <li>Queen</li>
-                        <li>Bon Jovi</li>
-                        <li>Guns N' Roses</li>
-                        <li>Earth, Wind & Fire</li>
-                        <li>Bee Gees</li>
-                    </ul>
+                <div class="glass-card hover-effect">
+                    <div class="icon">✨</div>
+                    <h2>Dress Code</h2>
+                    <p>Vení cómodo. Tu estilo y tu buena onda son lo único que importa.</p>
                 </div>
             </div>
-
-            <div class="spotify-container hidden-element delay-3">
-                <div class="spotify-header">
-                    <span class="rec-dot"></span> NUESTRO SOUNDTRACK @ DISCOTICK
-                </div>
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4UtSsGT1Sbe?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            </div>
-
         </section>
 
-        <footer>
-            <div class="footer-content">
+        <section id="musica" class="music-section snap-section">
+            <div class="content-anim w-100 centered-column">
+                <div class="section-title-wrapper">
+                    <h2 class="section-title">NUESTRA PLAYLIST</h2>
+                </div>
+
+                <div class="music-grid">
+                    <div class="music-card pink-glow">
+                        <div class="cassette-top"></div>
+                        <h3>SYNTH WAVE</h3>
+                        <ul class="artist-list">
+                            <li>Depeche Mode</li>
+                            <li>Erasure</li>
+                            <li>New Order</li>
+                        </ul>
+                    </div>
+
+                    <div class="music-card blue-glow">
+                        <div class="cassette-top"></div>
+                        <h3>POP ICONS</h3>
+                        <ul class="artist-list">
+                            <li>Michael Jackson</li>
+                            <li>Madonna</li>
+                            <li>Prince</li>
+                        </ul>
+                    </div>
+
+                    <div class="music-card purple-glow">
+                        <div class="cassette-top"></div>
+                        <h3>ROCK & DISCO</h3>
+                        <ul class="artist-list">
+                            <li>Queen</li>
+                            <li>Bon Jovi</li>
+                            <li>Bee Gees</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="spotify-container">
+                    <div class="spotify-header">
+                        <span class="rec-dot"></span> SOUNDTRACK @ DISCOTICK
+                    </div>
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4UtSsGT1Sbe?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="snap-section footer-section">
+            <div class="footer-content content-anim">
                 <div class="logo-small">Disco<span class="script-accent">tick</span></div>
                 <p>Juan B. Justo 1659, Palermo, Buenos Aires.</p>
-                
                 <p style="font-size: 0.8rem; color: #666; margin-top: 20px;">
                     © 2025 Discotick. Todos los derechos reservados.
                 </p>
-
                 <div class="developer-credit">
                     <a href="#" target="_blank" class="dev-link">TechnoMode Solutions</a>
                 </div>
             </div>
-        </footer>
+        </section>
     </div>
 
     <div class="social-float-container">
@@ -324,5 +304,29 @@
     </div>
 
     <script src="script.js"></script>
+    
+    <script>
+        // Esperar a que cargue el DOM
+        document.addEventListener("DOMContentLoaded", function() {
+            // Configurar el Intersection Observer
+            const observerOptions = {
+                root: null, // viewport
+                threshold: 0.2 // Se activa cuando el 20% del elemento es visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Agregar clase para animar
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Seleccionar todos los elementos con clase .content-anim
+            const animatedElements = document.querySelectorAll('.content-anim');
+            animatedElements.forEach(el => observer.observe(el));
+        });
+    </script>
 </body>
 </html>
